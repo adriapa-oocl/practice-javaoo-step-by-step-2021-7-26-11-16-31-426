@@ -22,13 +22,13 @@ public class Teacher extends Person {
         return klass;
     }
 
-    public String introduce(){
-        if (klass != null)
-//            return MessageFormat.format("{0} I teach Class {1}.", concatIntroString(), );
-            return klass.stream().map(klass -> klass.getNumber().toString()).collect(Collectors.joining(", ")))
-        else
-            return MessageFormat.format("{0} I teach No Class.", concatIntroString());
-    }
+//    public String introduce(){
+//        if (klass != null)
+////            return MessageFormat.format("{0} I teach Class {1}.", concatIntroString(), );
+//            return klass.stream().map(klass -> klass.getNumber().toString()).collect(Collectors.joining(", ")))
+//        else
+//            return MessageFormat.format("{0} I teach No Class.", concatIntroString());
+//    }
 
     public String concatIntroString(){
         return super.introduce() + " I am a Teacher.";
