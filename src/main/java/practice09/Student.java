@@ -19,6 +19,10 @@ public class Student extends Person {
         return klass;
     }
 
+    public void setKlass(Klass klass) {
+        this.klass=klass;
+    }
+
     public String introduce() {
         return concatIntroString();
     }

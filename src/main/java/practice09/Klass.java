@@ -1,14 +1,12 @@
 package practice09;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public class Klass {
 
     private final int number;
     private Student leader;
-    List<Student> students = new ArrayList<>();
 
     public Klass(int number) {
         this.number = number;
@@ -23,10 +21,10 @@ public class Klass {
     }
 
     public void assignLeader(Student leader) {
-        if (students.contains(leader)){
+        if(leader.getKlass().getNumber()==this.number) {
             this.leader = leader;
         }
-        else{
+        else {
             System.out.print("It is not one of us.\n");
         }
     }
@@ -36,6 +34,24 @@ public class Klass {
     }
 
     public void appendMember(Student member) {
-        students.add(member);
+        member.setKlass(this);
+    }
+
+    public boolean isIn(Student student)
+    {
+        return this.equals(student.getKlass());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Klass klass = (Klass) o;
+        return number == klass.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 }
